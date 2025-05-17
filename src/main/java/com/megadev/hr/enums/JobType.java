@@ -1,6 +1,6 @@
 package com.megadev.hr.entity;
 
 public enum JobType {
-    fullTime,
-    partTime
+    FULL_TIME,
+    PART_TIME
 }
