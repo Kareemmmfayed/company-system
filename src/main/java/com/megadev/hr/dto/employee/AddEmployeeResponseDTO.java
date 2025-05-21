@@ -1,4 +1,4 @@
-package com.megadev.hr.dto;
+package com.megadev.hr.dto.employee;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

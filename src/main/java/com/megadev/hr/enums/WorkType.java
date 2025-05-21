@@ -1,6 +1,7 @@
-package com.megadev.hr.entity;
+package com.megadev.hr.enums;
 
 public enum WorkType {
     ON_SITE,
-    REMOTE
+    REMOTE,
+    ABSENT
 }

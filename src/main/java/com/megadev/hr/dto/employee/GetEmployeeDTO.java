@@ -6,7 +6,7 @@ import com.megadev.hr.enums.Type;
 
 import java.math.BigDecimal;
 
-public interface GetEmployeeDTO1 {
+public interface GetEmployeeDTO {
     Long getId();
     String getName();
     String getPhoneNumber();

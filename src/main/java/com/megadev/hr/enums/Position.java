@@ -1,4 +1,4 @@
-package com.megadev.hr.entity;
+package com.megadev.hr.enums;
 
 public enum Position {
     FRONTEND,

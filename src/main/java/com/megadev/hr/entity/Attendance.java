@@ -1,11 +1,13 @@
 package com.megadev.hr.entity;
 
+import com.megadev.hr.enums.WorkType;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
-@Entity(name = "attendance")
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,22 +17,23 @@ public class Attendance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "day", nullable = false)
+    @Column(nullable = false)
     private LocalDate day;
 
-    @Column(name = "checkIn", nullable = false)
-    private LocalDate checkIn;
+    @Column(nullable = false)
+    private LocalTime checkIn;
 
-    @Column(name = "checkOut", nullable = false)
-    private LocalDate checkOut;
+    @Column
+    private LocalTime checkOut;
 
-    @Column(name = "status", nullable = false)
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private WorkType status;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "employee_id", nullable = false)
+    @JoinColumn(name = "employee_id", referencedColumnName = "id", nullable = false)
     private Employee employee;
 }

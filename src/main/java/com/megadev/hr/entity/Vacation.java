@@ -12,26 +12,25 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-public class Vacations {
+@ToString
+public class Vacation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     private Long id;
 
-    @Column(name = "from", nullable = false)
-    private LocalDate from;
+    @Column(nullable = false)
+    private LocalDate fromDate;
 
-    @Column(name = "to", nullable = false)
-    private LocalDate to;
+    @Column(nullable = false)
+    private LocalDate toDate;
 
-    @Column(name = "length", nullable = false)
-    private int length;
-
-    @Column(name = "status", nullable = false)
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private VacationRequestStatus status = VacationRequestStatus.PENDING;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "employee_id", nullable = false)
+    @JoinColumn(name = "employee_id", referencedColumnName = "id", nullable = false)
     private Employee employee;
-
 }

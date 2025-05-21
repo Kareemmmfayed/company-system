@@ -1,4 +1,7 @@
 package com.megadev.hr.exception;
 
-public class PhoneNumberIsNotAvailable {
+public class PhoneNumberIsNotAvailableException extends RuntimeException{
+    public PhoneNumberIsNotAvailableException(String message) {
+        super(message);
+    }
 }

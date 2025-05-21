@@ -1,8 +1,8 @@
-package com.megadev.hr.dto;
+package com.megadev.hr.dto.employee;
 
-import com.megadev.hr.entity.JobType;
-import com.megadev.hr.entity.Position;
-import com.megadev.hr.entity.Type;
+import com.megadev.hr.enums.JobType;
+import com.megadev.hr.enums.Position;
+import com.megadev.hr.enums.Type;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
