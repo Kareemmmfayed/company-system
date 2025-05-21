@@ -1,18 +1,18 @@
 package com.megadev.hr.entity;
 
+import com.megadev.hr.enums.VacationRequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
-@Entity(name = "vacation-request")
-@Getter
-@Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
-public class VacationRequest {
-
+public class Vacations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
@@ -27,9 +27,11 @@ public class VacationRequest {
     @Column(name = "length", nullable = false)
     private int length;
 
-    private VacationRequestStatus status = VacationRequestStatus.pending;
+    @Column(name = "status", nullable = false)
+    private VacationRequestStatus status = VacationRequestStatus.PENDING;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
+
 }
